@@ -4,162 +4,32 @@ publishedAt: "2025-12-01"
 summary: "How we modernized FundThrough's frontend to unlock innovation and sustained product growth."
 ---
 
-## High Stakes
+**High Stakes** When I joined FundThrough, I didn't walk into a typical engineering job. FundThrough is one of the leaders in the North American invoice factoring space, helping thousands of small businesses manage their cash flow. At this level, the engineering stakes are completely different. We aren't just playing with code; every onboarding flow determines whether a small business owner gets paid this week or next. To commit to our mission, the product team needed a major refresh including optimized client onboarding, faster funding, and AI-powered automation, but our frontend technology stack was not ready for what was coming.
 
-When I joined FundThrough, I didn't walk into a typical engineering job.
+**Legacy Empathy** We were running a five-year-old React application built on Semantic UI and Webpack. It is easy for engineers to look at an old system and judge it, but I believe it is far more important to look at it with empathy. Every line of that legacy code was written to solve a real constraint at a specific moment in time. I could see that in the tens and hundreds of if-else conditions scattered throughout our components. However, yesterday’s solutions had become today’s bottlenecks. Our build times were dragging, our UI library had no active development, and a tightly coupled global Redux state made shipping changes risky. The question wasn't just how to write better code, but how to modernize a mission-critical system without ever interrupting the mission.
 
-FundThrough is one of the leaders in the North American invoice factoring space, helping thousands of small businesses manage their cash flow. At this level, the engineering stakes are completely different. We aren't just playing with code; **every onboarding flow determines whether a small business owner gets paid this week or next.**
+**Surgical Strike** We couldn't afford a "Big Bang" rewrite that paused feature development for six months; the business was growing too fast for that. Instead, I took a deliberate, surgical approach to stabilization. We moved from Webpack to CRACO to gain configuration flexibility and upgraded Semantic UI to its latest version to unblock rendering issues. We also upgraded React and React Router, allowing us to adopt modern React hooks and patterns. These upgrades weren't glamorous, but they bought us something priceless: time and breathing room for the next 12–18 months.
 
-To commit to our mission, the product team needed a major refresh:
+**Blank Slate** Once the foundation was steady, I stepped back and asked: “If we started from scratch today, how would we build FundThrough’s frontend?”. We knew we needed a rebuild from the inside out, utilizing a true design system, TypeScript, React Query, and modern tooling like Vite. Most importantly, we needed to do this without slowing down the business for even a week.
 
-- Optimized client onboarding
-- Faster funding
-- AI-powered automation
+**The Bridge** We chose the "Strangler Fig" architectural pattern, moving to a Turborepo monorepo that allowed us to build "V2" features as packages. This was a game-changer. It allowed us to install modern V2 components directly inside the legacy V1 app. We achieved fast builds and high velocity, all while keeping the legacy flows completely intact.
 
-But our frontend technology stack was not ready for what was coming.
+**The MVP** The common reflex in the software industry is to look at a legacy system, want to burn it down, and start fresh on a greenfield. But we have to understand that for a mature company, that implies a level of risk and investment the business rarely needs. FundThrough couldn't commit to a two-year project to rebuild everything while the market raced ahead, and the leadership team was rightfully skeptical of a "Big Bang" rewrite. So, instead of pitching a grand plan with a slide deck, I presented a viable path. I built a prototype - a single login page. I built it using our new stack - Vite, React, TypeScript, React Query, Tailwind CSS, and Radix UI, and embedded it seamlessly into the legacy app via Turborepo. It was fast, clean, and modern. Crucially, it didn’t break production. When I demonstrated this to the CTO, V2 stopped being a vague "hope" and became a tangible path, creating immediate visibility and buy-in for Product, Design, and Leadership.
 
----
+**What Matters** This is the part of the story I’m most proud of because it reflects business success rather than just technical success. The data from our recent report was amazing: we saw near 100% growth in users leveraging key in-app features compared to the year before V2. Onboarding completion rates increased as customers moved through verification steps confidently. Simultaneously, we saw fewer “Can you do this for me?” calls to Client Success. By guiding users intuitively through the UI, we freed up our Client Success team to focus on growth rather than troubleshooting. We also unlocked innovation, enabling us to build and deploy micro-apps (widgets) directly into our partners' platforms - capturing client attention exactly where it matters most. This created a platform capable of supporting AI-driven features that would have been technically harder on the old stack. Ultimately, this process restored organizational trust with Ops, Sales, and Leadership. We proved that Product & Engineering could tackle massive technical debt while still delivering business value.
 
-## Legacy Empathy
-
-We were running a five-year-old React application built on **Semantic UI** and **Webpack**.
-
-It's easy for engineers to look at an older system and judge it. I believe it's far more important to look at it with **empathy**.
-
-Every line of that legacy code was written to solve a real constraint at a specific moment in time. You could see that in the tens and hundreds of `if-else` conditions scattered throughout our components.
-
-But yesterday's solutions had become today's bottlenecks:
-
-- Build times were dragging
-- Our UI library had no active development
-- A tightly coupled global Redux state made shipping changes risky
-
-The question wasn't just _“How do we write better code?”_  
-It was: **“How do we modernize a mission-critical system without ever interrupting the mission?”**
+**The Human Side** I care deeply about developer experience and clean architecture, but beneath that, I care about helping businesses survive and grow. Modernizing this frontend wasn’t about chasing JavaScript trends; it was an act of stewardship. It was about building a strong foundation for the next chapter - one that empowers designers, uplevels engineering standards, and drastically improves the customer experience. We did this while shipping continuously and never losing momentum. That is the kind of engineering I am proud of, the kind that builds not just software, but trust.
 
 ---
 
-## Surgical Strike
-
-We couldn't afford a "Big Bang" rewrite that paused feature development for six months. The business was growing too fast for that.
-
-Instead, I took a deliberate, **surgical approach to stabilization**:
-
-- Moved from **Webpack to CRACO** to gain configuration flexibility
-- Upgraded **Semantic UI** to its latest version to unblock rendering issues
-- Upgraded **React** and **React Router**, enabling modern hooks and patterns
-
-These upgrades weren't glamorous, but they bought us something priceless:  
-**time and breathing room for the next 12–18 months.**
-
----
-
-## Blank Slate
-
-Once the foundation was steady, I stepped back and asked:
-
-> **“If we started from scratch today, how would we build FundThrough's frontend?”**
-
-We knew we needed a rebuild from the inside out:
-
-- A true **design system**
-- **TypeScript**
-- **React Query**
-- Modern tooling like **Vite**
-
-Most importantly, we needed to do this **without slowing down the business for even a week.**
-
----
-
-## The Bridge
-
-We chose the **Strangler Fig** architectural pattern.
-
-We moved to a **Turborepo monorepo** that allowed us to build “V2” features as packages. This was a game-changer.
-
-It allowed us to:
-
-- Build modern V2 components using our new stack
-- Install and run those components **inside the legacy V1 app**
-
-We achieved fast builds and high velocity, all while keeping the legacy flows completely intact. V1 kept the business running. V2 pulled the product into the future.
-
----
-
-## The MVP
-
-The common reflex in our industry is to look at a legacy system, want to burn it down, and start fresh on a greenfield.
-
-But for a mature company, that implies a level of risk and investment the business **rarely needs**. FundThrough couldn't commit to a two-year rebuild while the market raced ahead. Leadership was rightfully skeptical of a “Big Bang” rewrite.
-
-So instead of pitching a grand plan with a slide deck, I presented a **path**.
-
-I built a **prototype**—a single login page.
-
-- Built with **Vite, React, TypeScript, React Query, Tailwind CSS, and Radix UI**
-- Embedded seamlessly into the legacy app via **Turborepo**
-- Fast, clean, and modern
-- Most importantly: **it didn't break production**
-
-When I demonstrated this to the CTO, V2 stopped being a vague “hope” and became a tangible path. That prototype created immediate visibility and buy-in for **Product, Design, and Leadership.**
-
----
-
-## What Matters
-
-This is the part I'm most proud of, because it reflects **business success**, not just technical success.
-
-From our recent report, the impact was clear:
-
-- We saw **near 100% growth in users leveraging key in-app features** compared to the year before V2.
-- **Onboarding completion rates increased** as customers moved through verification steps more confidently.
-- Simultaneously, we saw **fewer “Can you do this for me?” calls** to Client Success.
-
-By guiding users intuitively through the UI, we freed our Client Success team to focus on **growth instead of troubleshooting**.
-
-We also unlocked innovation:
-
-- We could now build and deploy **micro-apps (widgets)** directly into our partners' platforms, capturing client attention exactly where it matters most.
-- The new platform made it far easier to support **AI-driven features** that would have been technically hard—or fragile—on the old stack.
-
-Ultimately, this process **restored organizational trust** with Ops, Sales, and Leadership. We proved that Product & Engineering could tackle massive technical debt **while still delivering business value.**
-
----
-
-## The Human Side
-
-I care deeply about developer experience and clean architecture. But beneath that, I care about **helping businesses survive and grow**.
-
-Modernizing this frontend wasn't about chasing JavaScript trends; it was an act of **stewardship**.
-
-It was about:
-
-- Building a strong foundation for the next chapter
-- Empowering designers to move faster
-- Upleveling engineering standards
-- Drastically improving the customer experience
-
-We did all of this while:
-
-- Shipping continuously
-- Keeping the business running
-- Never losing momentum
-
-That is the kind of engineering I am proud of—the kind that builds not just software, but **trust**.
-
----
-
-## Thank You
-
-This transformation wasn't a solo act.
-
-A massive thank you to:
-
-- **Deepak Ramachandran**, co-founder, for trusting the architectural vision
-- **Frans Amelink**, our CTO, for backing the strategy at every critical step
-- The Product team – **Victor Skrylev** and **David Banks** – for valuing technical health alongside the roadmap
-- Our incredible designer **Dan Stein**, who made the UX world-class
-- And the engineering team at FundThrough, especially my backend partner-in-action **Tunbosun O.**, who turned this strategy into reality every single day
-
-This is what the art of stewardship looks like in practice:  
-**serving the business, the team, and the customers—one careful decision at a time.**
+<small>
+  This transformation wasn't a solo act. A massive thanks to co-founder [Deepak
+  Ramachandran](https://www.linkedin.com/in/deepakramachandran/) and our CTO
+  [Frans Amelink](https://www.linkedin.com/in/fransamelink/) for trusting the
+  architectural vision. Huge thanks to the Product team, [Victor
+  Skrylev](https://www.linkedin.com/in/victorskrylev/) and [David
+  Banks](https://www.linkedin.com/in/davidbanks/), for valuing technical health
+  alongside the product roadmap, and to our incredible designer [Dan
+  Stein](https://www.linkedin.com/in/dansteinart/) who made the UX world-class.
+  Finally, a special shoutout to the engineering team at FundThrough.
+</small>
