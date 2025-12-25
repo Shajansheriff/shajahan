@@ -1,0 +1,95 @@
+---
+title: The DX Dividend: Shift to Combined Engineering
+publishedAt: "2024-12-20"
+summary: "Why the future of quality depends on democratizing ownership to enable **Combined Engineering**. Why I bet on Playwright to align our tooling with our talent - unlocking velocity and turning automation into a force multiplier for the startup."
+---
+
+
+2024 has been a year of quiet but massive transformation at **FundThrough**. Our product roadmap was ambitious, we launched a completely new onboarding experience, and we leaned hard into a Product-Led Growth (PLG) mindset.
+
+But while we were rethinking our frontend architecture to prepare for the future, there was an invisible, massive elephant in the room: **Our testing strategy.**
+
+Until early 2024, our End-to-End (E2E) automation followed a traditional pattern: the QA team owned the automation, maintaining a large Cypress suite. While this provided a necessary safety net, I saw a potential as well a a massive opportunity.
+
+I am a big believer in "T-shaped expertise" - the idea that deep domain experts should possess broad capabilities across the stack. For a Frontend engineer, this means owning not just the UI implementation (the vertical depth), but the verification of that user journey (the horizontal breadth). We have seen the industry shift in this direction for years - starting with Microsoft’s "Combined Engineering" model and accelerating through the recent industry-wide push for operational efficiency. The era of distinct "builders" and "testers" is fading.
+
+In a high-velocity startup environment, you want engineers close to the user’s problems. However, **you cannot expect developers to own quality if you force them to use tools that fight against them.**
+
+I asked myself: **What if we empowered our Frontend engineers to actually play the automation game?**
+
+If developers could own the "Happy Path" and regression automation for their features, we could increase coverage speed and free up our QA resources for the work that requires their deep domain expertise. A "2-in-1" win for the company.
+
+### The Velocity Tax: Why the Silo Existed
+
+The barrier wasn't a lack of willingness; it was a mismatch of tools. I have a thing for Developer Experience (DX). I believe that by choosing the right tools and patterns, you can unblock massive velocity in a team. Conversely, if a tool creates friction, it becomes a tax on your culture.
+
+**Cypress** is a fantastic tool and an OG in the JavaScript space. But for our React-focused Frontend team, it introduced specific friction that kept them on the sidelines:
+
+1. **The "Promise" Illusion:** Cypress commands *look* like Promises, but they use a proprietary chaining mechanism. This forces developers into "callback hell" and makes standard JavaScript logic (loops, conditions) unintuitive.
+2. **Implementation Dependence:** We found ourselves relying heavily on `data-test-id` attributes. This meant we were often testing the HTML implementation rather than the user behavior.
+3. **Performance:** Our legacy suite for onboarding flows was taking **30 minutes** to run. In a continuous delivery environment, a 30-minute wait is an eternity.
+
+I realized that if I wanted to align with the modern standard of "Combined Engineering," I needed a tool that matched our developers' mental model.
+
+### Enter Playwright: Aligning Tooling with Talent
+
+When the product team planned the V2 build of our core React app, I saw the perfect window to propose a radical change: **Playwright**.
+
+Playwright didn’t just offer a different tool; it offered a different philosophy that aligned with our stack.
+
+**1. True JavaScript (Async/Await)**
+The immediate win was DX. If you know modern JavaScript, you know Playwright. There is no custom chaining magic - just standard `async` and `await`. The TypeScript support is phenomenal out of the box, making the tests robust and easy to refactor.
+
+**2. The "RTL" Vibe**
+Coming from a React background, I love **React Testing Library (RTL)**. RTL encourages you to find elements the way a user does (by Role, by Text, by Label). Playwright feels like the E2E equivalent. Instead of hunting for `data-test-id="submit-2"`, we write tests that look like user stories.
+
+**3. Blazing Speed**
+Playwright’s ability to run tests in parallel across multiple browsers (Chromium, Firefox, WebKit) is incredibly efficient.
+
+### The Strategy: Show, Don't Just Tell
+
+I knew that proposing a migration to a team of application and test engineers is rarely an easy sell. "Newer" doesn't always mean "Better," and the team was rightfully wary of abandoning years of Cypress work. I realized I couldn't just pitch a new tool; I had to **demonstrate value**.
+
+I leveraged our Monorepo setup to create a standalone E2E application for Playwright. I then took our critical **Onboarding flow** - the lifeblood of our user acquisition - and personally wrote a mirrored test suite.
+
+**The Comparison:**
+
+* **V1 (Cypress):** The existing suite (**30+ minutes**).
+* **V2 (Playwright):** My experimental suite with a few onboarding flows
+
+I presented the code side-by-side to show the difference in clarity:
+
+**Cypress (The Chain):**
+
+```javascript
+cy.get('.submit-btn').click().then(() => {
+  cy.get('.notification').should('be.visible');
+});
+
+```
+
+**Playwright (Standard JS):**
+
+```javascript
+await page.getByRole('button', { name: 'Submit' }).click();
+await expect(page.getByText('Success')).toBeVisible();
+
+```
+
+### The Payoff
+
+The results of the experiment were startling. The Playwright tests ran in **literally less than a minute**.
+
+When I presented the findings to the team, the argument wasn't about personal preference; it was about objective performance. I showed them the drastic reduction in lines of code, the clear observability in the Trace Viewer, and the instant feedback loop. The skepticism vanished.
+
+### The Outcome: A Shared Quality Culture
+
+Throughout the latter half of 2024, the dynamic shifted. Because the tooling was accessible, Frontend engineers started writing their own E2E tests for new features.
+
+This didn't just increase code coverage; it unlocked our QA team. With developers handling the automation of happy-path and regression scenarios, our QA engineers were freed from the drudgery of maintaining brittle scripts. They could reallocate that bandwidth to high-leverage activities: designing complex test cases, performing exploratory testing, and covering edge cases that automation often misses.
+
+### The DX Dividend
+
+Tools are often discussed in terms of features, but they should be measured by the leverage they provide. Slow tests create fear; they make you hesitate to refactor because you dread the wait time. **Fast, reliable tests create courage.**
+
+By switching to Playwright, we didn't just save server minutes; we unlocked a dividend of confidence that allows our engineering team to move as fast as our business demands. As we close out 2024, we have achieved automated coverage on our onboarding flows - a feat achieved through Combined Engineering, not just isolation.
