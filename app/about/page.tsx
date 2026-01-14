@@ -99,8 +99,7 @@ export default function AboutPage() {
         <p>
           Currently, I'm building at{" "}
           <ExternalLink href="https://fundthrough.com">FundThrough</ExternalLink>.
-          We’re developing automated underwriting systems that chew through messy, real-world documents to
-          underwriting systems that chew through messy, real-world documents to
+          We're developing automated underwriting systems that chew through messy, real-world documents to
           streamline risk assessment. The goal is pretty simple: take the
           complex, repetitive parts humans shouldn’t have to do and make them
           disappear into the background. It’s high-stakes work, but it’s
