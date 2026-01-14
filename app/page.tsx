@@ -5,23 +5,29 @@ export default function Page() {
   return (
     <section>
       <h1 className="mb-8 text-2xl font-semibold tracking-tighter">
-        Hey, I'm Shajahan
+        Hey there, I’m Shajahan
       </h1>
 
       <div className="mb-8 space-y-4 text-neutral-800 dark:text-neutral-200">
         <p>
-          Software engineer who thinks the best code is the kind nobody notices.
-          If users are thinking about your UI, you've already lost.
+          You can call me Sha, it’s easier to say and saves us both a bit of
+          sweat. I’m your friendly neighborhood software engineer who loves
+          building applications that AI agents are trying to replace (but never
+          quite will).
         </p>
 
         <p>
-          I build things that work, ship fast, and don't make future-me cry when
-          reading the codebase six months later.
+          Right now I’m nerding out on the AI/LLM frontier. I like to pretend
+          I’ve got it all figured out, but honestly I’m mostly just grinding
+          alongside Claude and Cursor to ship things that matter. Full
+          disclosure: this whole website is built and maintained by a Claude
+          agent.
         </p>
 
         <p>
-          Currently nerding out on AI/LLM stuff. Previously broke things (and
-          fixed them) at startups you may or may not have heard of.
+          Previously, I spent my time breaking (and eventually fixing) things at
+          startups you may or may not have heard of. One more thing: I also
+          write about my adventures in code on my blog (links below).
         </p>
 
         <p>

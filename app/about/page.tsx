@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Senior Software Engineer with 9+ years of experience. Founding engineer, AI/LLM enthusiast, and advocate for exceptional UI and developer experience.",
+    "Senior Software Engineer with a decade of experience. Founding engineer, AI/LLM enthusiast, and advocate for exceptional UI and developer experience.",
 };
 
 function DownloadIcon() {
@@ -30,6 +30,25 @@ type Skill = {
   name: string;
   url: string;
 };
+
+function ExternalLink({
+  href,
+  children,
+}: {
+  href: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="underline decoration-neutral-400 underline-offset-4 transition-all hover:decoration-neutral-800 dark:decoration-neutral-600 dark:hover:decoration-neutral-200"
+    >
+      {children}
+    </a>
+  );
+}
 
 const skills: Record<string, Skill[]> = {
   Frontend: [
@@ -69,32 +88,50 @@ export default function AboutPage() {
 
       <div className="space-y-4 text-neutral-800 dark:text-neutral-200">
         <p>
-          I'm a Senior Software Engineer with 9+ years under my belt, and right
-          now I'm really into <strong>AI and LLM-powered workflows</strong>. At
-          FundThrough, We've been building automated underwriting systems with
-          AI/LLM that can chew through complex documents and handle risk
-          assessment, basically turning hours of manual work into something that
-          just happens.
+          If you landed here from the home page, hi again! I’m Shajahan, but you
+          can call me Sha. I’ve been building software for about a decade now, yes,
+          from the era of "Too many Stack Overflow tabs," wondering why on earth
+          the CSS won't center, and treating unit tests like a love language. Of
+          course, these days I’m mostly trying to leave that "love" to the AI
+          agents so I can focus on the big picture. I’m learning. Please clap.
         </p>
 
         <p>
-          Before that, I was a{" "}
-          <strong>founding engineer at Rocketlane</strong>, where I got to build
-          the whole thing from the ground up with the founders. That zero-to-one
-          experience taught me a lot about moving fast without cutting corners.
-          I've worked across FinTech, SaaS, and a bit of everything in between.
+          Currently, I'm building at{" "}
+          <ExternalLink href="https://fundthrough.com">FundThrough</ExternalLink>.
+          We’re developing automated underwriting systems that chew through messy, real-world documents to
+          underwriting systems that chew through messy, real-world documents to
+          streamline risk assessment. The goal is pretty simple: take the
+          complex, repetitive parts humans shouldn’t have to do and make them
+          disappear into the background. It’s high-stakes work, but it’s
+          incredibly satisfying to see automation actually work in the wild.
         </p>
 
         <p>
-          Close to my heart, I genuinely care about <strong>UI and DX</strong>.
-          Whether it's the buttons a user clicks or the code a teammate reads, I
-          think great software should feel effortless. Good APIs, smart
-          abstractions, solid docs. That's how you build things that last.
+          Before this, I was a founding engineer at{" "}
+          <ExternalLink href="https://www.rocketlane.com">Rocketlane</ExternalLink>.
+          I got to build the whole thing from the ground up alongside the founders, taking the
+          product from Day Zero to million-dollar revenue. Zero-to-one is
+          chaotic in the best way; you ship fast, learn faster, and your work
+          shows up in the product immediately. I’m still waiting for the day my
+          ESOPs turn my "become a billionaire" dreams into reality, but until
+          then, I’ll keep doing what I love: building applications that solve
+          real business problems and deliver actual customer delight.
+        </p>
+
+        <p>
+          At the end of the day, I genuinely care about UI and DX. If a product
+          looks simple and feels effortless, it’s usually because someone
+          obsessed over it for way too long. You can thank those obsessive
+          people. Their hard work is the "reinforcement learning" that helps your
+          LLM sidekick actually be useful today. Great AI starts with a great
+          core.
         </p>
 
         <p className="italic text-neutral-600 dark:text-neutral-400">
-          Can I invert a binary tree on a whiteboard? Probably not. Can I build
-          a SaaS platform from zero to multi-million dollar revenue? Done it.
+          I’ll leave you with one final note: Can I invert a binary tree on a
+          whiteboard? Probably not. Can I build a SaaS platform from zero to
+          multi-million dollar revenue? Done it. Multiple times. Peace out.
         </p>
       </div>
 
