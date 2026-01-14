@@ -14,14 +14,42 @@ export const metadata: Metadata = {
     default: "Shajahan",
     template: "%s | Shajahan",
   },
-  description: "My personal website to share my thoughts and experiences.",
+  description:
+    "Shajahan (Sha) — Senior Software Engineer in Toronto, Canada. Building FinTech and SaaS products with React, Next.js, TypeScript, and a focus on UI, DX, and practical AI/LLM automation.",
+  keywords: [
+    "Senior Software Engineer",
+    "Toronto",
+    "Canada",
+    "React",
+    "Next.js",
+    "TypeScript",
+    "FinTech",
+    "SaaS",
+    "Design Systems",
+    "Developer Experience",
+    "LLM",
+    "AI",
+  ],
   openGraph: {
     title: "Shajahan",
-    description: "My personal website to share my thoughts and experiences.",
+    description:
+      "Senior Software Engineer in Toronto building FinTech/SaaS with React, Next.js, TypeScript, and a focus on UI, DX, and practical AI/LLM automation.",
     url: baseUrl,
     siteName: "Shajahan",
     locale: "en_US",
     type: "website",
+    images: [
+      {
+        url: "/og?title=Shajahan%20(AI%20%2F%20DX%20%2F%20SaaS)",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Shajahan",
+    description:
+      "Senior Software Engineer in Toronto building FinTech/SaaS with React, Next.js, TypeScript, and a focus on UI, DX, and practical AI/LLM automation.",
+    images: ["/og?title=Shajahan%20(AI%20%2F%20DX%20%2F%20SaaS)"],
   },
   robots: {
     index: true,
@@ -43,6 +71,49 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": `${baseUrl}/#person`,
+        name: "Shajahan Akbar Sheriff",
+        alternateName: ["Shajahan", "Sha"],
+        url: baseUrl,
+        image: `${baseUrl}/icon.svg`,
+        jobTitle: "Senior Software Engineer",
+        address: {
+          "@type": "PostalAddress",
+          addressLocality: "Toronto",
+          addressCountry: "CA",
+        },
+        sameAs: [
+          "https://www.linkedin.com/in/thatindiandev/",
+          "https://github.com/Shajansheriff",
+        ],
+        knowsAbout: [
+          "React",
+          "Next.js",
+          "TypeScript",
+          "Design systems",
+          "Developer experience",
+          "FinTech",
+          "SaaS",
+          "LLM automation",
+        ],
+      },
+      {
+        "@type": "WebSite",
+        "@id": `${baseUrl}/#website`,
+        url: baseUrl,
+        name: "Shajahan",
+        description:
+          "Shajahan (Sha) — Senior Software Engineer in Toronto, Canada. Building FinTech and SaaS products with React, Next.js, TypeScript, and a focus on UI, DX, and practical AI/LLM automation.",
+        publisher: { "@id": `${baseUrl}/#person` },
+      },
+    ],
+  };
+
   return (
     <html
       lang="en"
@@ -52,6 +123,13 @@ export default function RootLayout({
         GeistMono.variable
       )}
     >
+      <head>
+        <script
+          type="application/ld+json"
+          // eslint-disable-next-line react/no-danger
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
       <body className="antialiased max-w-xl mx-4 mt-8 lg:mx-auto">
         <main className="flex-auto min-w-0 mt-6 flex flex-col px-2 md:px-0">
           <Navbar />

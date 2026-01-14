@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Senior Software Engineer with a decade of experience. Founding engineer, AI/LLM enthusiast, and advocate for exceptional UI and developer experience.",
+    "Shajahan (Sha) is a Senior Software Engineer in Toronto, Canada with a decade of experience. Founding engineer building FinTech/SaaS with React, Next.js, TypeScript, and practical AI/LLM automation with a strong focus on UI and DX.",
 };
 
 function DownloadIcon() {

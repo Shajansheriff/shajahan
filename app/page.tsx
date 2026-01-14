@@ -1,5 +1,37 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { BlogPosts } from "app/components/posts";
+
+export const metadata: Metadata = {
+  title: "Shajahan (Sha) | Senior Software Engineer in Toronto",
+  description:
+    "Shajahan (Sha) is a Senior Software Engineer in Toronto, Canada. Building FinTech and SaaS products with React, Next.js, TypeScript, and a focus on UI, DX, and practical AI/LLM automation.",
+  keywords: [
+    "Senior Software Engineer",
+    "Toronto",
+    "Canada",
+    "React",
+    "Next.js",
+    "TypeScript",
+    "Design Systems",
+    "Developer Experience",
+    "FinTech",
+    "SaaS",
+  ],
+  openGraph: {
+    title: "Shajahan (Sha) | Senior Software Engineer in Toronto",
+    description:
+      "Senior Software Engineer in Toronto building FinTech/SaaS with React, Next.js, TypeScript, and a focus on UI, DX, and practical AI/LLM automation.",
+    url: "/",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Shajahan (Sha) | Senior Software Engineer in Toronto",
+    description:
+      "Senior Software Engineer in Toronto building FinTech/SaaS with React, Next.js, TypeScript, and a focus on UI, DX, and practical AI/LLM automation.",
+  },
+};
 
 export default function Page() {
   return (

@@ -5,7 +5,11 @@ function getBaseUrl() {
   let siteUrl = process.env.NEXT_PUBLIC_SITE_URL
   if (siteUrl) return siteUrl.replace(/\/$/, '')
 
-  // Vercel provides the hostname without protocol.
+  // In production builds, default to the canonical domain if not explicitly set.
+  // (Helps avoid accidentally canonicalizing to *.vercel.app.)
+  if (process.env.NODE_ENV === 'production') return 'https://shajahan.me'
+
+  // Vercel provides the hostname without protocol (useful for preview deploys).
   let vercelUrl = process.env.VERCEL_URL
   if (vercelUrl) return `https://${vercelUrl}`
 
@@ -21,7 +25,7 @@ export default async function sitemap() {
     lastModified: post.metadata.publishedAt,
   }))
 
-  let routes = ['', '/blog'].map((route) => ({
+  let routes = ['', '/blog', '/about', '/rss.xml'].map((route) => ({
     url: `${baseUrl}${route}`,
     lastModified: new Date().toISOString().split('T')[0],
   }))
