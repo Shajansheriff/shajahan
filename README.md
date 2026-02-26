@@ -39,4 +39,11 @@ Then, run Next.js in development mode:
 pnpm dev
 ```
 
+## Canonical URL (SEO)
+
+This site uses `NEXT_PUBLIC_SITE_URL` (when set) to generate canonical URLs for metadata and the sitemap.
+
+- Production canonical: `https://shajahan.me`
+- If you deploy to Vercel, set `NEXT_PUBLIC_SITE_URL` in your project environment variables.
+
 Deploy it to the cloud with [Vercel](https://vercel.com/templates) ([Documentation](https://nextjs.org/docs/app/building-your-application/deploying)).

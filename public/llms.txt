@@ -1,0 +1,20 @@
+# Shajahan (Sha)
+
+Canonical: https://shajahan.me
+
+Senior Software Engineer in Toronto, Canada. I build FinTech and SaaS products with React, Next.js, and TypeScript, with a focus on UI, DX, and practical AI/LLM automation.
+
+## Key pages
+
+- https://shajahan.me/
+- https://shajahan.me/about
+- https://shajahan.me/blog
+- https://shajahan.me/rss.xml
+- https://shajahan.me/Shajahan_Resume_2026.pdf
+
+## Profiles
+
+- https://www.linkedin.com/in/thatindiandev/
+- https://github.com/Shajansheriff
+
+
