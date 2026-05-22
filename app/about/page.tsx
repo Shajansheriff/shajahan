@@ -134,7 +134,7 @@ export default function AboutPage() {
         </p>
       </div>
 
-      <a
+      {/* <a
         href="/Shajahan_Resume_2026.pdf"
         target="_blank"
         rel="noopener noreferrer"
@@ -142,7 +142,7 @@ export default function AboutPage() {
       >
         <DownloadIcon />
         Download Resume
-      </a>
+      </a> */}
 
       <div className="mt-12">
         <h2 className="mb-6 text-xl font-medium tracking-tight">
